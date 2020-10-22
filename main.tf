@@ -2,7 +2,7 @@ provider "google" {
   credentials = ".credentials.json"
   project     = "huta99"
   region      = "us-central1"
-  zone        = "us-central1-c"
+  zone        = "us-central1-a"
 }
 
 

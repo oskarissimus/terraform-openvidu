@@ -1,16 +1,29 @@
+#data "google_compute_image" "my_image" {
+#  family  = "debian-9"
+#  project = "debian-cloud"
+#}
+
 resource "google_compute_instance" "openvidu" {
   name         = var.openvidu_name
 #  machine_type = "f1-micro"
   machine_type = "n1-standard-2"
   tags = ["openvidu"]
+
+  guest_accelerator {
+    type = "nvidia-tesla-t4"
+    count = 1
+  }
   scheduling {
     preemptible = true
     automatic_restart = false
+    on_host_maintenance = "TERMINATE"
   }
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-9"
+      #image = "debian-cloud/debian-9"
+
+      image = "deeplearning-platform-release/common-cu110"
     }
   }
 
