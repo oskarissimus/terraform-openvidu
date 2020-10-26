@@ -48,6 +48,11 @@ vim .env
 git clone https://github.com/OpenVidu/openvidu-tutorials.git
 sudo apt install -y npm
 sudo npm install -g http-server
+
+it is also required to edit app.js files in web dir of examples below
+they should have proper endpoint port and credentials:
+var OPENVIDU_SERVER_URL = "https://" + location.hostname + ":443";
+var OPENVIDU_SERVER_SECRET = "some_secret";
 ```
 ## running openvidu hello-world
 ```
