@@ -65,3 +65,13 @@ cd openvidu-tutorials/openvidu-filters/web/
 openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
 http-server -S
 ```
+
+## some nice ssh tunneling options might be useful
+```
+tunnel to connect via vscode (ssh extension - ssh -p 22222 terraform@localhost)
+autossh -N -L 22222:openvidu-fcfll61l:22 terraform@34.67.179.60
+
+tunnel to connect via rscreen
+autossh -N -L 2222:openvidu-fcfll61l:22 terraform@34.67.179.60
+rscreen -p 2222 terraform@localhost
+```
