@@ -40,27 +40,13 @@ resource "google_compute_firewall" "from-internet-to-elastic" {
 
   allow {
     protocol = "tcp"
-    ports = ["443"]
+    ports = ["443", "3478", "40000-65535", "8081"]
   }
 
-  allow {
-    protocol = "tcp"
-    ports = ["3478"]
-  }
 
   allow {
     protocol = "udp"
-    ports = ["3478"]
-  }
-
-  allow {
-    protocol = "tcp"
-    ports = ["40000-65535"]
-  }
-
-  allow {
-    protocol = "udp"
-    ports = ["40000-65535"]
+    ports = ["3478", "40000-65535"]
   }
 
   depends_on = [google_compute_network.network]

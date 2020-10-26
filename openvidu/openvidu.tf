@@ -9,10 +9,12 @@ resource "google_compute_instance" "openvidu" {
   machine_type = "n1-standard-2"
   tags = ["openvidu"]
 
-  guest_accelerator {
-    type = "nvidia-tesla-t4"
-    count = 1
-  }
+  guest_accelerator = []
+
+#  guest_accelerator {
+#    type = "nvidia-tesla-t4"
+#    count = 1
+#  }
   scheduling {
     preemptible = true
     automatic_restart = false
